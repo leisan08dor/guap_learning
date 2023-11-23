@@ -3,6 +3,15 @@
 #{'year':'Y','month':'M','day':'d'}
 
 #Решение:
-date='2023-11-22'.split('-')
-dict={'year':date[0],'month':date[1],'day':date[2]}
-print(dict)
+def conv_dict(date):
+    date=date.split('-')
+    dict={'year':date[0],'month':date[1],'day':date[2]}
+    return dict
+try:
+    date=input('Введите дату в формате: Год-месяц-день\n')
+    result=conv_dict(date)
+    print(result)  
+except:
+    print('Ошибка! Проверьте вводимые данные.')
+
+
