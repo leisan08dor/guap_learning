@@ -1,8 +1,3 @@
-#Дана дата в формате 'Y-m-d'
-#Преобазовать ее в словарь типа:
-#{'year':'Y','month':'M','day':'d'}
-
-#Решение:
 def conv_dict(date):
     date=date.split('-')
     dict={'year':date[0],'month':date[1],'day':date[2]}
