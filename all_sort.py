@@ -46,31 +46,31 @@ for size in sizes:
     print(finish_time - start_time)
 
 
-def bystraya_sortirovka(spisok):  # Никита
-    if len(spisok) <= 1:
-        return spisok
-    opora = spisok[len(spisok) // 2]
-    levaya = [x for x in spisok if x < opora]
-    srednyaya = [x for x in spisok if x == opora]
-    pravaya = [x for x in spisok if x > opora]
-    return bystraya_sortirovka(levaya) + srednyaya + bystraya_sortirovka(pravaya)
+def quicksort(array):  # Никита
+    if len(array) <= 1:
+        return array
+    base = array[len(array) // 2]
+    left = [x for x in array if x < base]
+    middle = [x for x in array if x == base]
+    right = [x for x in array if x > base]
+    return quicksort(left) + middle + quicksort(right)
 
 # Генерация списка случайных чисел указанного размера
-def generirovat_sluchaynyy_spisok(razmer):
-    return [random.randint(1, 1000) for _ in range(razmer)]
+def random_list(size):
+    return [random.randint(1, 1000) for _ in range(size)]
 
 # Замер времени выполнения сортировки
-def izmerit_vremya_sortirovki(spisok):
-    nachalnoe_vremya = time.time()
-    ototsortirovannyy_spisok = bystraya_sortirovka(spisok)
-    konechnoe_vremya = time.time()
-    return konechnoe_vremya - nachalnoe_vremya
+def time_sort(array):
+    start_time = time.time()
+    sorted_list = quicksort(array)
+    finish_time = time.time()
+    return finish_time - start_time
 
 # Размеры списков для сортировки
-razmery = [100, 1000, 10000, 100000, 1000000]
+sizes = [100, 1000, 10000, 100000, 1000000]
 
 # Выполнение сортировки и замер времени для каждого размера списка
-for razmer in razmery:
-    spisok = generirovat_sluchaynyy_spisok(razmer)
-    vremya_sortirovki = izmerit_vremya_sortirovki(spisok)
-    print(f"Размер списка: {razmer}, Время сортировки: {vremya_sortirovki} сек.")
+for size in sizes:
+    array = random_list(size)
+    time_s = time_sort(array)
+    print(f"Размер списка: {size}, Время сортировки: {time_s} сек.")
