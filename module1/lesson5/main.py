@@ -1,0 +1,13 @@
+import tkinter
+my_window = tkinter.Tk()
+my_window.title('Мое первое приложение \\О_О/')
+my_label = tkinter.Label(text='Клуб Винкс - вместе мы сильны!')
+my_label.pack()
+my_label2 = tkinter.Label(text='Чудеса творить вольны!', font=10)
+my_label2.pack()
+my_canva = tkinter.Canvas(my_window, width=500, height=500,background='white')
+my_canva.create_line(0,250,250,250,width=5,fill='blue')
+my_canva.create_oval(50,50,100,100,width=5,fill='blue')
+my_canva.create_line(250,500,250,0,width=5,fill='red')
+my_canva.pack()
+my_window.mainloop()
